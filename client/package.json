@@ -33,7 +33,18 @@
 			"react-app/jest"
 		],
 		"rules": {
-			"semi": "warn"
+			"indent": [
+				"error",
+				"tab"
+			],
+			"quotes": [
+				"error",
+				"single"
+			],
+			"semi": [
+				"error",
+				"always"
+			]
 		}
 	},
 	"browserslist": {

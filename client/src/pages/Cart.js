@@ -1,11 +1,12 @@
-import { useContext, useMemo } from "react";
-import { CartContext } from "../contexts/cart";
+import { useContext, useMemo } from 'react';
+import { CartContext } from '../contexts/cart';
 
 
 const CartPage = () => {
 	const { items } = useContext(CartContext);
 	const total = useMemo(() => {
-		return items.reduce((sum, item) => sum + (item.quantity * item.product.price), 0);
+		const total = items.reduce((sum, item) => sum + (item.quantity * item.product.price), 0);
+		return total.toFixed(2);
 	}, [items]);
 	return (
 		<>
@@ -30,7 +31,7 @@ const CartPage = () => {
 				))}
 				<div className="flex justify-between items-center">
 					<div className="uppercase text-2xl p-3">
-						TOTAL: {total.toFixed(2)}$
+						TOTAL: {total}$
 					</div>
 					<div>
 						<button className="btn-primary"> Buy now </button>

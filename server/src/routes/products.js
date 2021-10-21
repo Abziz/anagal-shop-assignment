@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
 	const { page = 1, limit = 6 } = req.query;
 	const products = await Product.find().skip((page - 1) * limit).limit(limit).lean();
-	res.send(products)
+	res.send(products);
 });
 
 /** Get a specific product */

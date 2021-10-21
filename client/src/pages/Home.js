@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
-import React, { useCallback, useContext, useEffect, useState } from "react";
-import { CartContext } from "../contexts/cart";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { CartContext } from '../contexts/cart';
 
 
 const HomePage = () => {

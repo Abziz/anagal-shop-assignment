@@ -1,14 +1,14 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { Route, Switch } from 'react-router-dom';
-import './App.css';
+
 import Layout from './components/Layout';
 import AuthPage from './pages/Auth';
 import CartPage from './pages/Cart';
 import HomePage from './pages/Home';
 
-
-library.add(fas)
+// some font awesome icons ( could narrow down the list of used icons for performance )
+library.add(fas);
 
 function App() {
 	return (

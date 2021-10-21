@@ -1,5 +1,5 @@
-import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
-import { AuthContext } from "./auth";
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { AuthContext } from './auth';
 
 
 
@@ -10,6 +10,8 @@ const CART_LOCAL_STORAGE_KEY = 'cart';
 export const CartProvider = ({ children }) => {
 
 	const { user } = useContext(AuthContext);
+
+	/** cart state, if a user exists take the cart from there otherwise check localstorage */
 	const [items, setItems] = useState(() => {
 		if (user) {
 			return user.cart;
@@ -21,14 +23,16 @@ export const CartProvider = ({ children }) => {
 		return [];
 	});
 
+	/**  save items to localstorage if there's no user */
 	useEffect(() => {
 		(async () => {
 			if (!user) {
 				localStorage.setItem(CART_LOCAL_STORAGE_KEY, JSON.stringify(items));
 			}
 		})();
-	}, [items, user])
+	}, [items, user]);
 
+	/** if user is changed, use his cart */
 	useEffect(() => {
 		if (user) {
 			setItems(user.cart);
@@ -37,8 +41,8 @@ export const CartProvider = ({ children }) => {
 
 
 
-
-	const addToCart = useCallback(async (product) => {
+	/** add to cart function  - TODO: call api if a user is authenticated */
+	const addToCart = useCallback((product) => {
 		setItems(oldItems => {
 			const items = [...oldItems];
 			const itemIndex = items.findIndex(item => item.product._id === product._id);
@@ -46,7 +50,7 @@ export const CartProvider = ({ children }) => {
 				items.push({
 					product,
 					quantity: 1
-				})
+				});
 			} else {
 				const { quantity } = items[itemIndex];
 				items[itemIndex] = { ...items[itemIndex], quantity: quantity + 1 };
@@ -61,4 +65,4 @@ export const CartProvider = ({ children }) => {
 		</CartContext.Provider>
 	);
 
-}
+};

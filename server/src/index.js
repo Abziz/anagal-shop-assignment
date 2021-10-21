@@ -6,7 +6,7 @@ const routes = require('./routes');
 
 mongoose.connect(process.env.MONGO_URI, (err) => {
 	if (err) return console.error(err);
-	console.log("connected to db")
+	console.log('connected to db');
 });
 const app = express();
 const port = process.env.PORT || 4000;

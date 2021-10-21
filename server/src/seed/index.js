@@ -4,7 +4,7 @@ const products = require('./products.json');
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URI, (err) => {
 	if (err) return console.error(err);
-	console.log("connected to db")
+	console.log('connected to db');
 });
 async function seed() {
 
@@ -13,6 +13,6 @@ async function seed() {
 }
 
 seed().then(() => {
-	console.log('seed complete')
+	console.log('seed complete');
 	return mongoose.disconnect();
 });

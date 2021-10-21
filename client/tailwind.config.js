@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 
 module.exports = {
 	// mode: 'jit',
@@ -24,4 +24,4 @@ module.exports = {
 		require('@tailwindcss/forms'),
 		require('@tailwindcss/line-clamp'),
 	],
-}
+};

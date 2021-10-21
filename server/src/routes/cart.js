@@ -1,8 +1,7 @@
 const express = require('express');
-const Joi = require('joi');
 const middleware = require('../middleware');
 const router = express.Router();
-const { User } = require('../models')
+const { User } = require('../models');
 
 /** Get current cart for user */
 router.get('/', middleware.jwt, async (req, res) => {
@@ -10,16 +9,16 @@ router.get('/', middleware.jwt, async (req, res) => {
 	if (!user) {
 		res.sendStatus(401);
 	}
-	res.send(user.cart)
+	res.send(user.cart);
 });
 
 /** Add product to cart */
 router.post('/add', middleware.jwt, async (req, res) => {
-	const { productId } = rq.body;
+	const { productId } = req.body;
 	if (!productId) {
 		return res.status(400).send({ error: '"productId" is required' });
 	}
-	console.log("HEREE")
+	console.log('HEREE');
 	res.send({ ok: true });
 });
 

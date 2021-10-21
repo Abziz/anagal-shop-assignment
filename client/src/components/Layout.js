@@ -1,6 +1,7 @@
 
-import Navbar from "./Navbar";
+import Navbar from './Navbar';
 
+/** simple layout component */
 const Layout = ({ children }) => {
 	return (
 		<>

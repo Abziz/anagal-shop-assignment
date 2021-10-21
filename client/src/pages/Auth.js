@@ -1,10 +1,10 @@
-import { useCallback, useContext, useRef, } from "react";
-import { useHistory } from "react-router-dom";
-import { AuthContext } from "../contexts/auth";
+import { useCallback, useContext, useRef, } from 'react';
+import { useHistory } from 'react-router-dom';
+import { AuthContext } from '../contexts/auth';
 
 const AuthPage = () => {
-	const history = useHistory()
-	const { login } = useContext(AuthContext)
+	const history = useHistory();
+	const { login } = useContext(AuthContext);
 	const usernameRef = useRef();
 	const passwordRef = useRef();
 
@@ -13,8 +13,8 @@ const AuthPage = () => {
 		const username = usernameRef.current.value;
 		const password = passwordRef.current.value;
 		await login(username, password);
-		history.push("/");
-	}, [history, login])
+		history.push('/');
+	}, [history, login]);
 
 	return (
 		<div className="my-auto">
@@ -27,6 +27,6 @@ const AuthPage = () => {
 		</div>
 
 	);
-}
+};
 
 export default AuthPage;

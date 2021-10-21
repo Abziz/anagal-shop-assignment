@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 const Joi = require('joi');
 const bcrypt = require('bcryptjs');
 const { User } = require('../models');
@@ -9,7 +9,7 @@ const router = express.Router();
 const loginSchema = Joi.object({
 	username: Joi.string().required(),
 	password: Joi.string().min(6).max(64).required(),
-})
+});
 
 router.post('/login', async (req, res) => {
 	const { error } = loginSchema.validate(req.body);
@@ -25,7 +25,7 @@ router.post('/login', async (req, res) => {
 		sub: user._id,
 	}, process.env.JWT_SECRET, { expiresIn: 7 * 24 * 60 * 60 * 100 });
 
-	res.send({ token })
+	res.send({ token });
 });
 
 router.post('/register', async (req, res) => {
