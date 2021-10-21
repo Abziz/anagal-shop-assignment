@@ -19,8 +19,8 @@ router.post('/add', middleware.jwt, async (req, res) => {
 	if (!productId) {
 		return res.status(400).send({ error: '"productId" is required' });
 	}
-	const cartItem = await User.findOne({ "cart.product": productId });
-
+	console.log("HEREE")
+	res.send({ ok: true });
 });
 
 module.exports = router;
